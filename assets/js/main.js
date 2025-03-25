@@ -1,7 +1,8 @@
 /*=============== SHOW SIDEBAR ===============*/
 const navMenu = document.getElementById("sidebar"),
   navToggle = document.getElementById("nav-toggle"),
-  navClose = document.getElementById("nav-close");
+  navClose = document.getElementById("nav-close"),
+  navLinks = document.querySelectorAll(".nav__link");
 
 /*===== SIDEBAR SHOW =====*/
 /* Validate If Constant Exists */
@@ -18,6 +19,14 @@ if (navClose) {
     navMenu.classList.remove("show-sidebar");
   });
 }
+
+
+/*===== CLOSE SIDEBAR WHEN CLICKING A LINK =====*/
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show-sidebar");
+  });
+});
 
 // ============ SHARE WEB ============
 const shareBtn = document.querySelector(".btn__share");
