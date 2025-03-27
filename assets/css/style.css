@@ -547,10 +547,17 @@ input {
   display: flex;
   align-items: center;
   cursor: pointer;
+  padding: 1rem;
+  border-radius: .5rem;
+  transition: .3s;
+}
+
+.skills__header:hover{
+  background-color: var(--box-color);
 }
 
 .skills__header:not(:last-child) {
-  margin-bottom: var(--mb-2-5);
+  margin-bottom: var(--mb-1);
 }
 
 .skills__icon,
@@ -641,6 +648,7 @@ input {
   padding: 0.25rem 0.75rem;
   font-weight: var(--font-medium);
   border-radius: 0.5rem;
+  border: 2px solid var(--box-color);
 }
 
 .work__card {
