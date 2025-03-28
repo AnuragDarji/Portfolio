@@ -81,6 +81,7 @@ input {
 body {
   background-color: var(--body-color);
   color: var(--text-color);
+  cursor: none;
 }
 
 h1,
@@ -113,6 +114,31 @@ input {
   border: none;
   outline: none;
 }
+
+ /* ========= cursor ========== */
+.cursor-dot{
+  width: 5px;
+  height: 5px;
+  background-color: white;
+}
+
+.cursor-outline{
+  width: 40px;
+  height: 40px;
+  border: 2px solid hsla(0, 0%, 100%, 0.5);
+}
+
+.cursor-dot,
+.cursor-outline{
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+
 
 /*=============== LAYOUT ===============*/
 .container {
@@ -453,6 +479,7 @@ input {
   padding: 1rem 1.25rem;
   background-color: var(--box-color);
 }
+
 
 .about__icon {
   font-size: 1.5rem;
