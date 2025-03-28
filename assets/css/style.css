@@ -115,30 +115,29 @@ input {
   outline: none;
 }
 
- /* ========= cursor ========== */
-.cursor-dot{
+/* ========= cursor ========== */
+.cursor-dot {
   width: 5px;
   height: 5px;
   background-color: white;
 }
 
-.cursor-outline{
+.cursor-outline {
   width: 40px;
   height: 40px;
   border: 2px solid hsla(0, 0%, 100%, 0.5);
 }
 
 .cursor-dot,
-.cursor-outline{
+.cursor-outline {
   position: fixed;
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  z-index: 1;
+  z-index: 1000;
   pointer-events: none;
 }
-
 
 /*=============== LAYOUT ===============*/
 .container {
@@ -480,7 +479,6 @@ input {
   background-color: var(--box-color);
 }
 
-
 .about__icon {
   font-size: 1.5rem;
   color: var(--skin-color);
@@ -575,11 +573,11 @@ input {
   align-items: center;
   cursor: pointer;
   padding: 1rem;
-  border-radius: .5rem;
-  transition: .3s;
+  border-radius: 0.5rem;
+  transition: 0.3s;
 }
 
-.skills__header:hover{
+.skills__header:hover {
   background-color: var(--box-color);
 }
 
