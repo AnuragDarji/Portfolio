@@ -83,7 +83,7 @@ let resume = document.getElementById('resume');
 resume.addEventListener('click',()=>{handleDownload()});
 
 const handleDownload = () => {
-  window.location.href = "https://drive.google.com/uc?export=download&id=1FGZo8ursXbpQDsiaVg1Xjpk_IsPI59vd";
+  window.location.href = "https://drive.google.com/uc?export=download&id=1K13KQHCbc7N3YuPcU4Q3HjkQRUmijBWV";
 };
 
 
