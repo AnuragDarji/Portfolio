@@ -246,30 +246,83 @@ function navHighlighter() {
 /*=============== SHOW SCROLL UP ===============*/
 
 // ======== CONTACT FORM =========
+// document.addEventListener("DOMContentLoaded", function () {
+//     document.getElementById("sendMessageBtn").addEventListener("click", function () {
+//       let name = document.getElementById("name").value.trim();
+//       let email = document.getElementById("email").value.trim();
+//       let phone = document.getElementById("phone").value.trim();
+//       let message = document.getElementById("message").value.trim();
+
+//       // Validate inputs
+//       if (!name || !email || !phone || !message) {
+//         alert("Please fill in all fields before sending.");
+//         return;
+//       }
+
+//       // // Replace with your WhatsApp number (include country code, no `+`)
+//       // let whatsappNumber = "9157945792";
+
+//       // // Encode user inputs to prevent errors
+//       // let whatsappURL = `https://wa.me/${whatsappNumber}?text=
+//       //   Name: ${encodeURIComponent(name)}%0A
+//       //   Email: ${encodeURIComponent(email)}%0A
+//       //   Phone: ${encodeURIComponent(phone)}%0A
+//       //   Message: ${encodeURIComponent(message)}`;
+
+//       // // Open WhatsApp chat in a new tab
+//       // window.open(whatsappURL, "_blank");
+
+
+//     });
+//   })
+
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("sendMessageBtn").addEventListener("click", function () {
-      let name = document.getElementById("name").value.trim();
-      let email = document.getElementById("email").value.trim();
-      let phone = document.getElementById("phone").value.trim();
-      let message = document.getElementById("message").value.trim();
+  document.getElementById("sendMessageBtn").addEventListener("click", function () {
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let message = document.getElementById("message").value.trim();
 
-      // Validate inputs
-      if (!name || !email || !phone || !message) {
-        alert("Please fill in all fields before sending.");
-        return;
-      }
+    // Validate inputs
+    if (!name || !email || !phone || !message) {
+      alert("Please fill in all fields before sending.");
+      return;
+    }
 
-      // Replace with your WhatsApp number (include country code, no `+`)
-      let whatsappNumber = "9157945792";
+    // Construct data object
+    const data = {
+      username: name,
+      email: email,
+      phone: phone,
+      message: message
+    };
 
-      // Encode user inputs to prevent errors
-      let whatsappURL = `https://wa.me/${whatsappNumber}?text=
-        Name: ${encodeURIComponent(name)}%0A
-        Email: ${encodeURIComponent(email)}%0A
-        Phone: ${encodeURIComponent(phone)}%0A
-        Message: ${encodeURIComponent(message)}`;
+    // Make POST request
+    fetch("https://to-do-list-repository-1.onrender.com/contact_info/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json(); // or response.text() if server doesn’t return JSON
+      })
+      .then(result => {
+        alert(result.message || "Message sent successfully!");
+        // Optionally reset the form
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("message").value = "";
+      })
+      .catch(error => {
+        console.error("There was a problem with the fetch operation:", error);
+        alert("There was an error sending your message. Please try again later.");
+      });
+  });
+});
 
-      // Open WhatsApp chat in a new tab
-      window.open(whatsappURL, "_blank");
-    });
-  })
